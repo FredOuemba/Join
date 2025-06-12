@@ -231,9 +231,7 @@ input[type="date"]::placeholder { color: #b3b3b3; }
 .priority-btn.low { }
 
 .priority-btn.active-urgent {
-  
   color: #fff;
- 
 }
 .priority-btn.active-medium {
   background: #ffa800;
@@ -241,9 +239,7 @@ input[type="date"]::placeholder { color: #b3b3b3; }
   border-color: #ffa800;
 }
 .priority-btn.active-low {
-
   color: #fff;
-
 }
 .priority-btn.active-urgent img,
 .priority-btn.active-medium img,
@@ -497,4 +493,12 @@ input[type="date"]::placeholder { color: #b3b3b3; }
 .line {
   border-bottom: 1.5px solid #e5e7eb;
   margin: 22px 0 22px 0;
+}
+
+/* Anpassung für optionale Hinweise */
+.optional {
+  color: #7d8ba1;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 3px;
 }
