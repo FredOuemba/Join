@@ -1,90 +1,126 @@
 .page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 68px;
-  padding: 0 40px 0 0;
+  width: 100vw;
+  height: 80px;
   background: #4589FF;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 5000;
-  box-shadow: none;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  box-shadow: 0 2px 8px rgba(69,137,255,0.08);
 }
 
 .header-left {
   display: flex;
   align-items: center;
+  margin-left: 28px;
 }
-
 .header-join-logo {
-  width: 46px;
-  height: 46px;
-  margin-left: 32px;
-  margin-right: 18px;
+  width: 38px;
+  height: 38px;
 }
-
 .logo-title {
-  font-size: 17px;
   color: #fff;
+  margin-left: 18px;
+  font-size: 20px;
   font-weight: 400;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.01em;
+  opacity: 0.98;
 }
 
 .header-icons {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
+  margin-right: 30px;
 }
 
 .help-icon {
-  width: 26px;
-  height: 26px;
+  background: #fff;
+  color: #4589FF;
   border-radius: 50%;
-  border: 2px solid #fff;
-  color: #fff;
-  background: transparent;
+  width: 36px;
+  height: 36px;
+  font-size: 21px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.06);
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: color 0.15s, background 0.15s;
 }
 
 .help-icon:hover {
-  transform: scale(1.15);
-  background: rgba(255,255,255,0.05);
+  background: #e5e7eb;
+  color: #336fcc;
+}
+
+.profile-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .user-initial-small {
-  border: 2px solid #4589FF;
-  color: #4589FF;
   background: #fff;
-  width: 40px;
-  height: 40px;
-  font-size: 17px;
+  color: #4589FF;
   border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.04);
+}
+
+.dropdown-menu-small {
+  position: absolute;
+  right: 0;
+  top: 44px;
+  background: #fff;
+  color: #252525;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(44,62,80,0.13);
+  min-width: 150px;
+  padding: 12px 0;
+  display: none;
+  z-index: 999;
+  font-size: 16px;
+}
+.dropdown-menu-small.show {
+  display: block;
+}
+.dropdown-menu-small ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.dropdown-menu-small li {
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.dropdown-menu-small li:hover {
+  background: #f0f6ff;
+}
+.dropdown-menu-small a {
+  color: #252525;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+  display: block;
 }
 
 @media (max-width: 768px) {
-  .page-header {
-    left: 0 !important;
-    padding: 0 15px 0 0;
-  }
-  .header-join-logo {
-    margin-left: 6px;
-    margin-right: 12px;
-    width: 36px;
-    height: 36px;
-  }
-  .logo-title {
-    font-size: 14px;
-    display: none;
-  }
+  .header-left { margin-left: 12px; }
+  .logo-title { font-size: 16px; }
+  .header-icons { margin-right: 8px; gap: 14px; }
+  .user-initial-small { width: 32px; height: 32px; font-size: 15px; }
+  .help-icon { width: 30px; height: 30px; font-size: 17px; }
 }
