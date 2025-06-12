@@ -1,154 +1,195 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f8f9fb;
+  background-color: #fff; /* Reinweiß wie auf dem Screenshot */
   margin: 0;
 }
 
 main {
-  align-items: center;
-  padding-top: 100px;
-  margin-left: 230px;
+  align-items: flex-start;
+  padding-top: 80px;
+  margin-left: 232px;
+  background: #fff;
+  min-height: 100vh;
 }
 
 .maincontent {
-  padding-left: 80px;
-  max-width: 1200px;
+  padding-left: 60px;
+  max-width: 900px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 85vh;
+  gap: 0;
 }
 
-h1 {
-  font-size: 50px;
-  margin-bottom: 20px;
-  margin-block-start: 0;
-  margin-block-end: 0;
+.h1div, h1 {
+  display: none; /* Kein sichtbares H1 auf Screenshot */
 }
 
 form {
   display: flex;
-  align-items: stretch;
-  gap: 40px;
+  flex-direction: column;
+  gap: 0;
+  background: #fff;
+  width: 100%;
 }
 
 .form-section {
-  flex: 1;
-  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
 }
 
 label {
-  display: block;
-  margin-bottom: 7px;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #252525;
+  margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="date"],
-textarea,
-select {
-  width: 100%;
-  padding: 15px;
-  font-size: 18px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-sizing: border-box;
-  height: 38px;
-  font-family: Arial, sans-serif;
+label .optional {
   font-weight: normal;
+  color: #7d8ba1;
+  font-size: 14px;
+  margin-left: 3px;
+}
+
+input[type="text"], input[type="date"], textarea, select {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #e5e7eb;
+  border-radius: 0;
+  box-sizing: border-box;
+  background: #fff;
+  font-family: inherit;
+  margin-bottom: 18px;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus, input[type="date"]:focus, textarea:focus, select:focus {
+  border-bottom: 2px solid #4589FF;
+  outline: none;
 }
 
 textarea {
   resize: vertical;
-  height: 90px;
+  height: 80px;
 }
+
+input[type="date"]::-webkit-input-placeholder { color:#b3b3b3; }
+input[type="date"]::-moz-placeholder { color:#b3b3b3; }
+input[type="date"]:-ms-input-placeholder { color:#b3b3b3; }
+input[type="date"]::placeholder { color:#b3b3b3; }
 
 .custom-date-container {
   position: relative;
-  display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  margin-bottom: 10px;
-  height: 50px;
-}
-
-.custom-date-container input {
-  border: none;
-  outline: none;
-  background: transparent;
   width: 100%;
-  font-size: 16px;
-  color: #000;
-  margin-bottom: 0 !important;
+  margin-bottom: 18px;
 }
-
-.custom-date-container input::placeholder {
-  color: #b3b3b3;
+.custom-date-container input[type="date"] {
+  padding-right: 38px;
 }
-
 .calendar-icon {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
 }
 
 .priority-buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  width: 100%;
+  display: flex;
+  gap: 14px;
+  margin-bottom: 18px;
 }
-
-.priority-buttons button {
+.priority-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 10px 10px;
-  font-size: 18px;
-  line-height: 1.2;
-  border: none;
-  border-radius: 10px;
+  gap: 7px;
+  padding: 10px 22px;
+  font-size: 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #252525;
   cursor: pointer;
-  background-color: #fff;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  transition: all 0.2s ease;
-  min-width: 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  height: 50px;
+  font-weight: bold;
+  transition: all 0.2s;
 }
 
-.priority-buttons button:hover {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
+.priority-btn img { height: 18px; }
+
+.priority-btn.urgent { border-color: #ff3d00; }
+.priority-btn.medium { border-color: #ffa800; }
+.priority-btn.low { border-color: #7ae229; }
+
+.priority-btn.active-urgent {
+  background: #ff3d00;
+  color: #fff;
+  border-color: #ff3d00;
+}
+.priority-btn.active-medium {
+  background: #ffa800;
+  color: #fff;
+  border-color: #ffa800;
+}
+.priority-btn.active-low {
+  background: #7ae229;
+  color: #fff;
+  border-color: #7ae229;
 }
 
-.priority-buttons button.active-urgent {
-  background-color: #FF3D00;
-  color: white;
+.assigned-dropdown,
+.category-dropdown {
+  margin-bottom: 18px;
 }
 
-.priority-buttons button.active-medium {
-  background-color: #ffa800;
-  color: white;
+.assigned-select,
+.category-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #e5e7eb;
+  padding: 12px 0;
+  background: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  color: #252525;
 }
 
-.priority-buttons button.active-low {
-  background-color: #7AE229;
-  color: white;
+.assigned-search-input {
+  border: none;
+  background: none;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+}
+
+.dropdown-arrow {
+  margin-left: 8px;
+  width: 18px;
+  height: 18px;
+}
+
+.category-options, .assigned-options {
+  margin-top: 0;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
 }
 
 .subtask-input-container {
   display: flex;
   align-items: center;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border-bottom: 2px solid #e5e7eb;
+  background: #fff;
   height: 38px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .subtask-input {
@@ -156,242 +197,73 @@ textarea {
   background: transparent;
   flex: 1;
   outline: none;
-  font-size: 18px;
+  font-size: 16px;
   color: #333;
   margin-bottom: 0 !important;
   height: 38px !important;
 }
 
-.subtask-input::placeholder {
-  color: #bbb;
-}
 .add-subtask-button {
   background: none;
   border: none;
-  font-size: 28px;
-  color: #888;
+  font-size: 24px;
+  color: #4589FF;
   cursor: pointer;
-  padding: 0 13px;
-  transition: color 0.2s ease;
-}
-.subtask-list-container {
-  height: 99px;
-  overflow-y: auto;
-  border: none;
-  margin-top: 10px;
+  padding: 0 10px;
 }
 
 .subtask-list {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  margin-bottom: 10px;
 }
 
 .bottom-buttons {
-  bottom: 10px;
-  right: 30%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  gap: 20px;
   margin-top: 30px;
-}
-.bottom-buttons button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  font-size: 18px;
-  cursor: pointer;
 }
 
 .clear-btn {
   background-color: transparent;
-  border: 1px solid #2a3647 !important;
-  margin-right: 10px;
-  color: #2a3647;
-}
-.clear-btn:hover {
-  border: 2px solid #5abce5 !important;
-  color: #5abce5 !important;
-}
-.create-btn {
-  background-color: #2b2d42;
-  color: white;
-}
-.create-btn:hover {
-  background-color: #5abce5;
-}
-.task-success {
-  position: fixed;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  background-color: #2A3647;
-  color: white;
-  padding: 16px 32px;
-  border-radius: 12px;
-  font-size: 18px;
+  border: none;
+  color: #42526e;
+  font-size: 17px;
+  margin-right: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: all 0.4s ease;
-  z-index: 1000;
+  gap: 6px;
+  transition: color 0.2s;
 }
 
-.task-success.show {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
+.clear-btn:hover { color: #4589FF; }
+
+.create-btn {
+  background-color: #4589FF;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  padding: 12px 28px;
+  font-weight: bold;
+  transition: background 0.2s;
 }
 
-.required-note {
-  font-size: 18px;
-  color: #ff8190;
-  margin-bottom: 10px;
-  margin-top: 5px;
+.create-btn:hover {
+  background: #336fcc;
 }
 
-.input-error {
-  border: 1px solid #ff8190 !important;
-}
-
-.line {
-  margin: 0 20px;
-  width: 1px;
-  background-color: #d1d1d1;
-}
-
-.d-none {
-  display: none;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
-.required-note {
-  font-size: 18px;
-}
-
-#required-responsive-note {
-  color: red;
-  font-size: 18px;
-}
-
-.maincontent {
-  padding-left: 80px;
+.required-note, .input-error, .invisible {
+  display: none !important; /* Keine roten Fehlerhinweise anzeigen */
 }
 
 @media (max-width: 1080px) {
-  .line {
-    margin: 0;
-  }
-  .maincontent {
-    padding-left: 30px;
-  }
-  .priority-buttons button {
-    flex-direction: column;
-    font-size: 16px;
-  }
-  main {
-    width:72%;
-  }
+  .maincontent { padding-left: 20px; }
 }
-
-@media (max-width:850px) {
-  main {
-    width:70%;
-  }
-  .category-select{
-    font-size:17px !important;
-  }
+@media (max-width: 850px) {
+  main { margin-left: 70px; }
 }
-
-@media (max-width: 600px) {
-  .clear-btn {
-    width: 100px !important;
-    height: 50px !important;
-    right: 180px !important;
-    font-size: 16px !important;
-  }
-  .create-btn {
-    width: 150px !important;
-    height: 50px !important;
-    font-size: 16px !important;
-  }
-}
-@media (min-height: 850px) {
-  h1 {
-    margin-top: 75px !important;
-  }
-}
-
 @media (max-width: 768px) {
-  .priority-buttons button {
-    font-size: 18px;
-    padding: 6px 4px;
-    flex-direction: row;
-  }
-
-  body {
-    display: flex;
-    justify-content: center;
-  }
-  main {
-    margin-left: 0;
-    width: 90%;
-  }
-  .priority-buttons button img {
-    width: 20px;
-    height: 20px;
-  }
-  .bottom-buttons {
-    margin-top: 0;
-  }
-  form {
-    display: block;
-    margin-top: 120px;
-  }
-  .form-section {
-    width: 100%;
-  }
-  .maincontent {
-    padding-bottom: 200px;
-    height: 1000px;
-    padding-left: 0;
-  }
-  .create-btn {
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    height: 60px;
-    width: 150px;
-  }
-  .clear-btn {
-    position: fixed;
-    bottom: 100px;
-    right: 200px;
-    height: 60px;
-    width: 150px;
-    border: 2px solid black !important;
-    background-color: #f6f7f8;
-  }
-  .h1div {
-    height: 50px;
-    width: 100%;
-    background-color: #f6f7f8;
-    top: 83px;
-    position: fixed;
-    left: 0;
-    padding: 20px;
-    z-index: 2;
-  }
-  h1 {
-    margin-top: 0 !important;
-  }
-}
-
-@media (max-width:400px) {
-  .priority-buttons button {
-    flex-direction:column;
-  }
+  .maincontent { padding-left: 0; }
+  main { margin-left: 0; }
 }
