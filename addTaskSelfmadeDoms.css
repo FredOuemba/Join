@@ -42,7 +42,7 @@
 }
 
 .input-focus {
-  border: 1px solid #29abe2 !important;
+   border: none !important;
   outline: none;
 }
 
@@ -113,7 +113,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #ccc;
   border-radius: 8px;
   background-color: white;
   height: 38px;
@@ -289,4 +288,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.assigned-select:focus-within,
+.assigned-select.input-focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }

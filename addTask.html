@@ -11,6 +11,33 @@
     <link rel="stylesheet" href="style/dropdown-menu.css">
     <link rel="stylesheet" href="style/help.css">
     <link rel="stylesheet" href="style/header.css">
+    <style>
+      /* Join-Logo oben links im Header */
+      .header-join-logo-absolute {
+        position: absolute;
+        top: 21px;
+        left: 38px;
+        width: 38px;
+        height: 38px;
+        z-index: 210;
+      }
+      @media (max-width: 768px) {
+        .header-join-logo-absolute {
+          top: 12px;
+          left: 10px;
+          width: 32px;
+          height: 32px;
+        }
+      }
+      .page-header {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        z-index: 200;
+        /* rest siehe header.css */
+      }
+    </style>
   </head>
   <body onload="fetchDataTasks(); assignedToInput();">
     <aside class="sidebar">
@@ -20,25 +47,25 @@
         </div>
         <a href="#" class="nav-item">
           <div class="nav-item-content">
-            <img src="./svg/Icons.svg" alt="">
+            <img src="./svg/Icons.svg" alt="Summary">
             <span>Summary</span>
           </div>
         </a>
         <a href="addTask.html" class="nav-item active">
           <div class="nav-item-content">
-            <img src="./svg/Icons (1).svg" alt="">
+            <img src="./svg/Icons (1).svg" alt="Add Task">
             <span>Add Task</span>
           </div>
         </a>
         <a href="#" class="nav-item">
           <div class="nav-item-content">
-            <img src="./svg/Vector (1) 2.svg" alt="">
+            <img src="./svg/Vector (1) 2.svg" alt="Board">
             <span>Board</span>
           </div>
         </a>
         <a href="#" class="nav-item">
           <div class="nav-item-content">
-            <img src="./svg/Icons (3).svg" alt="">
+            <img src="./svg/Icons (3).svg" alt="Contacts">
             <span>Contacts</span>
           </div>
         </a>
@@ -50,21 +77,22 @@
     </aside>
 
     <header class="page-header">
-      <div class="header-left">
-        <img src="svg/sidebarLogo.svg" alt="Join Logo" class="header-join-logo">
-        <span class="logo-title">Kanban Project Management Tool</span>
-      </div>
-      <div class="header-icons">
-        <div class="help-icon" id="helpIcon">?</div>
-        <div class="profile-wrapper">
-          <div class="user-initial-small" id="userInitialButton"></div>
-          <div class="dropdown-menu-small" id="userDropdown">
-            <ul>
-              <li class="mobile-only"><a href="help.html">Help</a></li>
-              <li><a href="#">Legal Notice</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Log out</a></li>
-            </ul>
+      <!-- Absolut positioniertes Join-Logo im Header -->
+      <img src="svg/sidebarLogo.svg" alt="Join Logo" class="header-join-logo-absolute">
+      <div class="header-right" style="display: flex; align-items: center; gap: 22px; margin-left: auto; margin-right: 32px;">
+        <span class="logo-title" style="font-size: 17px; margin-right: 14px;">Kanban Project Management Tool</span>
+        <div class="header-icons" style="display: flex; align-items: center; gap: 14px;">
+          <div class="help-icon" id="helpIcon" style="width: 24px; height: 24px; font-size: 13px;">?</div>
+          <div class="profile-wrapper">
+            <div class="user-initial-small" id="userInitialButton"></div>
+            <div class="dropdown-menu-small" id="userDropdown">
+              <ul>
+                <li class="mobile-only"><a href="help.html">Help</a></li>
+                <li><a href="#">Legal Notice</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Log out</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -139,8 +167,8 @@
         </form>
         <div class="bottom-buttons">
           <div class="bottom-fixed-buttons">
-            <button type="button" class="clear-btn" onclick="clearForm()">Clear X</button>
-            <button type="button" class="create-btn" onclick="createTaskFromForm()">Create Task ✔</button>
+            <button type="button" class="clear-btn">Clear X</button>
+            <button type="button" class="create-btn">Create Task ✔</button>
           </div>
         </div>
       </div>
@@ -150,6 +178,5 @@
     <script type="module" src="JavaScript/addTask.js"></script>
     <script src="JavaScript/fetchAndAddTask.js"></script>
     <script src="JavaScript/dropdown-menu.js"></script>
-
   </body>
 </html>

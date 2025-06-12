@@ -31,7 +31,6 @@ main {
   scrollbar-gutter: stable both-edges;
 }
 
-/* Großer, moderner Scrollbar für .maincontent (Chrome, Edge, Safari) */
 .maincontent::-webkit-scrollbar {
   width: 24px;
   height: 24px;
@@ -53,7 +52,6 @@ main {
 .maincontent::-webkit-scrollbar-corner {
   background: #f6f7fb;
 }
-/* Moderner Scrollbar für Firefox */
 .maincontent {
   scrollbar-width: thick;
   scrollbar-color: #b3b3b3 #f6f7fb;
@@ -141,7 +139,6 @@ textarea {
   color: #2a3647;
 }
 
-/* Scrollbar für textarea */
 textarea::-webkit-scrollbar {
   width: 8px;
 }
@@ -226,7 +223,7 @@ input[type="date"]::placeholder { color: #b3b3b3; }
 }
 .priority-btn img { height: 18px; }
 
-.priority-btn.urgent {  }
+.priority-btn.urgent { }
 .priority-btn.medium { border-color: #ffa800; }
 .priority-btn.low { }
 
@@ -254,7 +251,7 @@ input[type="date"]::placeholder { color: #b3b3b3; }
 
 .assigned-dropdown,
 .category-dropdown {
-  margin-bottom: 18px;
+  margin-bottom: 24px;
   margin-top: 6px;
   position: relative;
 }
@@ -264,37 +261,87 @@ input[type="date"]::placeholder { color: #b3b3b3; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #e5e7eb;
-  padding: 12px 0 12px 0;
   background: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  color: #2a3647;
-  font-weight: 500;
-  min-height: 48px;
+  border-radius: 8px;
+  padding: 16px 15px 16px 15px;
+  font-size: 18px;
+  color: #b3b3b3;
+  font-weight: 400;
   margin-bottom: 8px;
-  border-radius: 0;
+  transition: border 0.18s;
+  cursor: pointer;
+}
+
+.assigned-select.input-focus,
+.category-select.input-focus,
+.assigned-select:focus-within,
+.category-select:focus-within {
+  border: 1.5px solid #4589FF;
+}
+
+.assigned-select input#assigned-search,
+.category-select .category-placeholder {
+  color: #b3b3b3 !important;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.assigned-select,
+.category-select {
+}
+
+.assigned-select .dropdown-arrow,
+.category-select .dropdown-arrow {
+  width: 24px;
+  height: 24px;
+  opacity: 0.7;
 }
 
 .assigned-search-input {
   border: none;
   background: none;
-  font-size: 16px;
+  font-size: 18px;
   width: 100%;
   outline: none;
   color: #2a3647;
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
 }
 
-.dropdown-arrow {
-  margin-left: 8px;
-  width: 18px;
-  height: 18px;
+#selected-avatars.selected-avatars {
+  margin-bottom: 12px;
+  margin-top: 0;
 }
 
-.category-options, .assigned-options {
+.category-placeholder {
+  color: #b3b3b3 !important;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+label[for="assigned"],
+label[for="category"] {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2a3647;
+  margin-bottom: 7px;
+  margin-top: 18px;
+  letter-spacing: 0.01em;
+}
+
+.optional {
+  color: #b3b3b3 !important;
+  font-size: 15px;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.category-options,
+.assigned-options {
   margin-top: 0;
   background: #fff;
-  border: 1px solid #e5e7eb;
+  border: 1.5px solid #d1dbe8;
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(44,62,80,0.07);
   padding: 3px 0;
@@ -303,31 +350,13 @@ input[type="date"]::placeholder { color: #b3b3b3; }
   width: 100%;
   max-height: 210px;
   overflow-y: auto;
+  top: 100%;
+  left: 0;
 }
 
-/* Scrollbar für Dropdown-Listen */
-.category-options::-webkit-scrollbar,
-.assigned-options::-webkit-scrollbar {
-  width: 8px;
-}
-.category-options::-webkit-scrollbar-thumb,
-.assigned-options::-webkit-scrollbar-thumb {
-  background: #b3b3b3;
-  border-radius: 5px;
-}
-.category-options::-webkit-scrollbar-track,
-.assigned-options::-webkit-scrollbar-track {
-  background: #f6f7fb;
-  border-radius: 5px;
-}
-.category-options,
-.assigned-options {
-  scrollbar-width: thin;
-  scrollbar-color: #b3b3b3 #f6f7fb;
-}
-
-.category-options > div, .assigned-options > div {
-  padding: 12px 20px;
+.category-options > div,
+.assigned-options > div {
+  padding: 14px 20px;
   cursor: pointer;
   font-size: 16px;
   color: #2a3647;
@@ -342,29 +371,38 @@ input[type="date"]::placeholder { color: #b3b3b3; }
 .assigned-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 18px;
+  gap: 14px;
+  padding: 12px 20px;
   cursor: pointer;
   border-radius: 6px;
   transition: background 0.12s;
+  font-size: 16px;
 }
-.assigned-row.active, .assigned-row:hover {
+.assigned-row.active,
+.assigned-row:hover {
   background: #f3f7fa;
 }
+
 .avatar {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   color: #fff;
-  font-size: 18px;
+  font-size: 19px;
+  margin-right: 10px;
 }
+
 .assigned-checkbox {
   margin-left: auto;
+  width: 20px;
+  height: 20px;
+  accent-color: #4589FF;
 }
+
 .selected-avatars {
   display: flex;
   gap: 8px;
@@ -413,12 +451,13 @@ input[type="date"]::placeholder { color: #b3b3b3; }
   color: #4589FF;
   cursor: pointer;
   padding: 0 10px;
+  position: relative;
+  right: 20px;
 }
 .subtask-list {
   margin-bottom: 10px;
 }
 
-/* --- BUTTONS-Rechts unten fixieren wie im Screenshot --- */
 .bottom-buttons {
   position: fixed;
   right: 48px;
@@ -495,7 +534,6 @@ input[type="date"]::placeholder { color: #b3b3b3; }
   margin: 22px 0 22px 0;
 }
 
-/* Anpassung für optionale Hinweise */
 .optional {
   color: #7d8ba1;
   font-size: 14px;
