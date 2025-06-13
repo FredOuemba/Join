@@ -90,17 +90,17 @@
           <div class="form-section">
             <label>Priority</label>
             <div class="priority-buttons">
-              <button type="button" class="priority-btn urgent">
-                <img src="assets/urgent.png" alt="Urgent" class="priority-icon">
-                Urgent
+              <button type="button" class="priority-btn urgent" id="priority-urgent">
+                <span class="priority-text">Urgent</span>
+                <img src="assets/urgent.png" alt="Urgent" class="priority-icon-right">
               </button>
-              <button type="button" class="priority-btn medium active-medium">
-                Medium
+              <button type="button" class="priority-btn medium active-medium" id="priority-medium">
+                <span class="priority-text">Medium</span>
                 <img src="assets/mediumwhite.png" alt="Medium" class="priority-icon-right">
               </button>
-              <button type="button" class="priority-btn low">
-                <img src="assets/low.png" alt="Low" class="priority-icon">
-                Low
+              <button type="button" class="priority-btn low" id="priority-low">
+                <span class="priority-text">Low</span>
+                <img src="assets/low.png" alt="Low" class="priority-icon-right">
               </button>
             </div>
             <label for="assigned">Assigned to <span class="optional">(optional)</span></label>
@@ -112,7 +112,11 @@
                   class="assigned-search-input"
                   placeholder="Select contacts to assign"
                 />
-                <img src="assets/arrow_drop_down.png" class="dropdown-arrow custom-arrow" alt="Dropdown Arrow">
+                <span class="dropdown-arrow-hover-area">
+                  <span class="dropdown-arrow-wrapper">
+                    <img src="assets/arrow_drop_down.png" class="dropdown-arrow custom-arrow assigned-arrow" alt="Dropdown Arrow">
+                  </span>
+                </span>
               </div>
               <div class="assigned-options d-none" id="assigned-list"></div>
             </div>
@@ -121,7 +125,11 @@
             <div class="category-dropdown" id="category-dropdown">
               <div class="category-select">
                 <span id="selected-category" class="category-placeholder">Select task category</span>
-                <img src="assets/arrow_drop_down.png" class="dropdown-arrow custom-arrow" alt="Dropdown Arrow">
+                <span class="dropdown-arrow-hover-area">
+                  <span class="dropdown-arrow-wrapper">
+                    <img src="assets/arrow_drop_down.png" class="dropdown-arrow custom-arrow category-arrow" alt="Dropdown Arrow">
+                  </span>
+                </span>
               </div>
               <div class="category-options d-none" id="category-options">
                 <div onclick="selectCategory('Technical Task')">Technical Task</div>
