@@ -23,6 +23,14 @@
   height: 38px;
   z-index: 210;
 }
+@media (max-width: 768px) {
+  .header-join-logo-absolute {
+    top: 12px;
+    left: 10px;
+    width: 32px;
+    height: 32px;
+  }
+}
 
 .header-right {
   display: flex;
@@ -48,7 +56,6 @@
   gap: 14px;
 }
 
-/* HELP ICON Figma Style */
 .help-icon {
   background: #fff;
   color: #4589FF;
@@ -70,7 +77,6 @@
     border 0.15s,
     box-shadow 0.22s cubic-bezier(.4,2.3,.3,1),
     transform 0.22s cubic-bezier(.4,2.3,.3,1);
-  /* Figma: sanftes, natürliches Wachstum */
 }
 .help-icon:hover,
 .help-icon:focus-visible {
@@ -142,3 +148,47 @@
   display: block;
 }
 
+/* Mobile only visibility for dropdown menu items */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .logo-title {
+    display: none;
+  }
+  .header-right {
+    gap: 12px;
+    margin-right: 10px;
+  }
+  .help-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 17px;
+    margin-right: 6px;
+  }
+  .user-initial-small {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+  }
+  .dropdown-menu-small {
+    top: 36px;
+    min-width: 110px;
+    font-size: 14px;
+  }
+  .dropdown-menu-small li {
+    padding: 8px 14px;
+  }
+  .header-join-logo-absolute {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Show mobile-only elements on small screens */
+@media (max-width: 600px) {
+  .mobile-only {
+    display: block !important;
+  }
+}

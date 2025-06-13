@@ -11,61 +11,34 @@
     <link rel="stylesheet" href="style/dropdown-menu.css">
     <link rel="stylesheet" href="style/help.css">
     <link rel="stylesheet" href="style/header.css">
-    <style>
-      /* Join-Logo oben links im Header */
-      .header-join-logo-absolute {
-        position: absolute;
-        top: 21px;
-        left: 38px;
-        width: 38px;
-        height: 38px;
-        z-index: 210;
-      }
-      @media (max-width: 768px) {
-        .header-join-logo-absolute {
-          top: 12px;
-          left: 10px;
-          width: 32px;
-          height: 32px;
-        }
-      }
-      .page-header {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100vw;
-        z-index: 200;
-        /* rest siehe header.css */
-      }
-    </style>
   </head>
   <body onload="fetchDataTasks(); assignedToInput();">
     <aside class="sidebar">
       <nav class="sidebar-nav">
         <div class="sidebar-logo-header">
-          <img src="svg/sidebarLogo.svg" alt="Join Logo" class="sidebar-join-logo">
+          <img src="assets/sidebarLogo.png" alt="Join Logo" class="sidebar-join-logo">
         </div>
         <a href="#" class="nav-item">
           <div class="nav-item-content">
-            <img src="./svg/Icons.svg" alt="Summary">
+            <img src="./assets/Icons.png" alt="Summary">
             <span>Summary</span>
           </div>
         </a>
         <a href="addTask.html" class="nav-item active">
           <div class="nav-item-content">
-            <img src="./svg/Icons (1).svg" alt="Add Task">
+            <img src="./assets/Icons1.png" alt="Add Task">
             <span>Add Task</span>
           </div>
         </a>
         <a href="#" class="nav-item">
           <div class="nav-item-content">
-            <img src="./svg/Vector (1) 2.svg" alt="Board">
+            <img src="./assets/Icons2.png" alt="Board">
             <span>Board</span>
           </div>
         </a>
         <a href="#" class="nav-item">
           <div class="nav-item-content">
-            <img src="./svg/Icons (3).svg" alt="Contacts">
+            <img src="./assets/Icons3.png" alt="Contacts">
             <span>Contacts</span>
           </div>
         </a>
@@ -77,12 +50,11 @@
     </aside>
 
     <header class="page-header">
-      <!-- Absolut positioniertes Join-Logo im Header -->
       <img src="svg/sidebarLogo.svg" alt="Join Logo" class="header-join-logo-absolute">
-      <div class="header-right" style="display: flex; align-items: center; gap: 22px; margin-left: auto; margin-right: 32px;">
-        <span class="logo-title" style="font-size: 17px; margin-right: 14px;">Kanban Project Management Tool</span>
-        <div class="header-icons" style="display: flex; align-items: center; gap: 14px;">
-          <div class="help-icon" id="helpIcon" style="width: 24px; height: 24px; font-size: 13px;">?</div>
+      <div class="header-right">
+        <span class="logo-title">Kanban Project Management Tool</span>
+        <div class="header-icons">
+          <div class="help-icon" id="helpIcon">?</div>
           <div class="profile-wrapper">
             <div class="user-initial-small" id="userInitialButton"></div>
             <div class="dropdown-menu-small" id="userDropdown">
@@ -175,8 +147,6 @@
     </main>
 
     <script src="JavaScript/addSubtaks.js"></script>
-    <script type="module" src="JavaScript/addTask.js"></script>
-    <script src="JavaScript/fetchAndAddTask.js"></script>
     <script src="JavaScript/dropdown-menu.js"></script>
   </body>
 </html>
