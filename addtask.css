@@ -164,11 +164,12 @@ input[type="date"]:disabled {
   margin-bottom: 18px;
   margin-top: 6px;
 }
+
 .priority-btn {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 22px 10px 22px;
+  padding: 10px 22px;
   font-size: 16px;
   border: 2px solid #e5e7eb;
   border-radius: 8px;
@@ -176,40 +177,65 @@ input[type="date"]:disabled {
   color: #2a3647;
   cursor: pointer;
   font-weight: 600;
-  transition: all 0.2s;
-  outline: none;
+  transition: border-color 0.2s;
   min-width: 110px;
   justify-content: center;
   position: relative;
+  box-sizing: border-box;
 }
-.priority-btn .priority-icon-right {
-  width: 22px;
-  height: 22px;
-  margin-left: 8px;
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  top: 1px;
+
+/* Urgent & Low: Hover-Effekt NUR untere Border färben, Inhalt bleibt */
+.priority-btn.urgent:hover:not(.active-urgent) {
+  border-color: #e5e7eb;
+  border-bottom: 3px solid #ff3d00;
+  color: #2a3647;
+  background: #fff;
 }
+.priority-btn.low:hover:not(.active-low) {
+  border-color: #e5e7eb;
+  border-bottom: 3px solid #7ae229;
+  color: #2a3647;
+  background: #fff;
+}
+
+/* Urgent & Low: Standard (nicht aktiv) */
+.priority-btn.urgent:not(.active-urgent),
+.priority-btn.low:not(.active-low) {
+  border-bottom: 2px solid #e5e7eb;
+}
+
+/* Urgent & Low aktiv */
 .priority-btn.active-urgent {
   background: #ff3d00;
   color: #fff;
   border-color: #ff3d00;
-}
-.priority-btn.active-medium {
-  background: #ffa800;
-  color: #fff;
-  border-color: #ffa800;
 }
 .priority-btn.active-low {
   background: #7ae229;
   color: #fff;
   border-color: #7ae229;
 }
+
+/* Medium: kein Hover, immer orange */
+.priority-btn.medium,
+.priority-btn.active-medium {
+  background: #ffa800;
+  color: #fff;
+  border-color: #ffa800;
+  pointer-events: none;
+}
+
+/* Priority-Icons invertieren wenn aktiv */
 .priority-btn.active-urgent img,
 .priority-btn.active-medium img,
 .priority-btn.active-low img {
   filter: brightness(0) invert(1);
+}
+
+/* Priority-Icons beim Hover anpassen (bleibt farbig) */
+.priority-btn.urgent:hover:not(.active-urgent) img,
+.priority-btn.low:hover:not(.active-low) img {
+  filter: none;
 }
 
 /* ========== Dropdown Arrow ========== */
@@ -306,7 +332,6 @@ input[type="date"]:disabled {
   outline: none;
 }
 
-/* CIRCLE Hover wie Arrow */
 .add-subtask-button-wrapper:hover,
 .add-subtask-button-wrapper:focus-within {
   background: #dbeaff;
