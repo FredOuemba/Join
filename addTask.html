@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style/help.css">
     <link rel="stylesheet" href="style/header.css">
   </head>
-  <body onload="fetchDataTasks(); assignedToInput();">
+  <body>
     <aside class="sidebar">
       <nav class="sidebar-nav">
         <div class="sidebar-logo-header">
@@ -20,25 +20,25 @@
         </div>
         <a href="#" class="nav-item">
           <div class="nav-item-content">
-            <img src="./assets/Icons.png" alt="Summary">
+            <img src="assets/Icons.png" alt="Summary">
             <span>Summary</span>
           </div>
         </a>
         <a href="addTask.html" class="nav-item active">
           <div class="nav-item-content">
-            <img src="./assets/Icons1.png" alt="Add Task">
+            <img src="assets/Icons1.png" alt="Add Task">
             <span>Add Task</span>
           </div>
         </a>
         <a href="#" class="nav-item">
           <div class="nav-item-content">
-            <img src="./assets/Icons2.png" alt="Board">
+            <img src="assets/Icons2.png" alt="Board">
             <span>Board</span>
           </div>
         </a>
         <a href="#" class="nav-item">
           <div class="nav-item-content">
-            <img src="./assets/Icons3.png" alt="Contacts">
+            <img src="assets/Icons3.png" alt="Contacts">
             <span>Contacts</span>
           </div>
         </a>
@@ -50,7 +50,7 @@
     </aside>
 
     <header class="page-header">
-      <img src="svg/sidebarLogo.svg" alt="Join Logo" class="header-join-logo-absolute">
+      <img src="assets/sidebarLogo.png" alt="Join Logo" class="header-join-logo-absolute">
       <div class="header-right">
         <span class="logo-title">Kanban Project Management Tool</span>
         <div class="header-icons">
@@ -72,64 +72,63 @@
 
     <main>
       <div class="maincontent">
-        <div class="h1div"> <h1>Add Task</h1></div>
+        <div class="h1div"><h1>Add Task</h1></div>
         <form>
           <div class="form-section">
             <label for="title"><span class="required-note"> *</span></label>
-            <input type="text" id="title" placeholder="Enter a title" onfocus="this.classList.add('input-focus')" onblur="this.classList.remove('input-focus')"/>
-            <div id="title-error" class="required-note invisible">This field is required</div>
+            <input type="text" id="title" placeholder="Enter a title"/>
             <label for="desc">Description <span class="optional">(optional)</span></label>
-            <textarea id="desc" placeholder="Enter a Description"   onfocus="this.classList.add('input-focus')" onblur="this.classList.remove('input-focus')"></textarea>
+            <textarea id="desc" placeholder="Enter a Description"></textarea>
             <label for="due-date" style="margin-top:20px;">Due date<span class="required-note">*</span></label>
-            <input type="date" id="due-date" onfocus="this.classList.add('input-focus')" onblur="this.classList.remove('input-focus')"/>
-            <div id="date-error" class="required-note invisible">This field is required</div>
+            <input type="date" id="due-date"/>
           </div>
           <div class="line"></div>
           <div class="form-section">
             <label>Priority</label>
             <div class="priority-buttons">
-              <button type="button" class="priority-btn urgent">&nbsp;Urgent&nbsp; <img src="svg/urgent.svg" alt="" srcset=""></button>
-              <button type="button" class="priority-btn medium active-medium">Medium <img src="svg/mediumwhite.svg" alt="" srcset=""></button>
-              <button type="button" class="priority-btn low"> &nbsp;&nbsp;&nbsp;Low&nbsp;&nbsp;&nbsp;  <img src="svg/low.svg" alt=""></button>
+              <button type="button" class="priority-btn urgent">
+                <img src="assets/urgent.png" alt="Urgent" style="height:18px; margin-right:5px;">
+                Urgent
+              </button>
+              <button type="button" class="priority-btn medium active-medium">
+                <img src="assets/mediumwhite.png" alt="Medium" style="height:18px; margin-right:5px;">
+                Medium
+              </button>
+              <button type="button" class="priority-btn low">
+                <img src="assets/low.png" alt="Low" style="height:18px; margin-right:5px;">
+                Low
+              </button>
             </div>
-            <div id="priority-error" class="required-note invisible">This field is required</div>
             <label for="assigned">Assigned to <span class="optional">(optional)</span></label>
             <div class="assigned-dropdown" id="assigned-dropdown">
-              <div class="assigned-select" id="assigned-select" onclick="openAssignedDropdown(event)">
+              <div class="assigned-select" id="assigned-select">
                 <input
                   type="text"
                   id="assigned-search"
                   class="assigned-search-input"
                   placeholder="Select contacts to assign"
-                  oninput="filterAssignedList()"
                 />
-                <img src="./svg/dropdownArrowDown.svg" class="dropdown-arrow" onclick="toggleAssignedDropdown(event); document.getElementById('assigned-select').classList.remove('input-focus')">
+                <img src="assets/dropdownArrowDown.svg" class="dropdown-arrow">
               </div>
               <div class="assigned-options d-none" id="assigned-list"></div>
             </div>
             <div id="selected-avatars" class="selected-avatars"></div>
-            <label for="category" style="margin-top:15px;">
-              Category
-            </label>
+            <label for="category" style="margin-top:15px;">Category</label>
             <div class="category-dropdown" id="category-dropdown">
               <div class="category-select">
                 <span id="selected-category" class="category-placeholder">Select task category</span>
-                <img src="svg/dropdownArrowDown.svg" class="dropdown-arrow">
+                <img src="assets/dropdownArrowDown.svg" class="dropdown-arrow">
               </div>
               <div class="category-options d-none" id="category-options">
                 <div onclick="selectCategory('Technical Task')">Technical Task</div>
                 <div onclick="selectCategory('User Story')">User Story</div>
               </div>
             </div>
-            <div id="category-error" class="required-note invisible">This field is required</div>
             <label for="subtasks">Subtasks <span class="optional">(optional)</span></label>
             <div class="subtask-input-container" id="subtask-input-container">
-              <input type="text" placeholder="Add new subtask" class="subtask-input"  oninput="toggleSubtaskButtons(this)" />
+              <input type="text" placeholder="Add new subtask" class="subtask-input"/>
               <div class="subtask-buttons">
-                <button type="button" class="add-subtask-button" onclick="document.querySelector('.subtask-input').focus()">+</button>
-                <button type="button" class="cancel-subtask-button d-none" onclick="clearSubtaskInput(this)"><img src="svg/XButton.svg" alt=""></button>
-                <div class="subtask-divider d-none"></div>
-                <button type="button" class="confirm-subtask-button d-none" onclick="addSubtask(this)"><img src="svg/checkButton.svg" alt=""></button>
+                <button type="button" class="add-subtask-button">+</button>
               </div>
             </div>
             <div id="subtask-list-container" class="subtask-list-container">
@@ -146,7 +145,7 @@
       </div>
     </main>
 
-    <script src="JavaScript/addSubtaks.js"></script>
-    <script src="JavaScript/dropdown-menu.js"></script>
+    <script src="Scripts/addSubtaks.js"></script>
+    <script src="Scripts/dropdown-menu.js"></script>
   </body>
 </html>
