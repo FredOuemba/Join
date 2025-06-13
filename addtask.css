@@ -115,21 +115,46 @@ textarea::placeholder {
   opacity: 1;
 }
 
+/* ==== Custom Underline for Due Date ==== */
 input[type="date"] {
   width: 100%;
-  padding: 16px 40px 16px 12px;
+  padding: 18px 40px 8px 0;
   font-size: 20px;
-  border: 1.5px solid #e5e7eb;
-  border-radius: 8px;
+  border: none;
+  border-bottom: 2px solid #e5e7eb;
+  border-radius: 0;
   background: #fff url('svg/calendar.svg') no-repeat right 12px center/22px 22px;
   box-sizing: border-box;
   height: 50px;
   margin-bottom: 18px;
   transition: border-color 0.2s;
+  color: #2a3647;
+  appearance: none;
 }
+
 input[type="date"]:focus {
-  border-color: #4589FF;
+  border-bottom: 2px solid #4589FF;
   outline: none;
+}
+
+input[type="date"]::-webkit-input-placeholder { color: #b3b3b3; font-size: 20px; opacity: 1; }
+input[type="date"]::-moz-placeholder { color: #b3b3b3; font-size: 20px; opacity: 1; }
+input[type="date"]:-ms-input-placeholder { color: #b3b3b3; font-size: 20px; opacity: 1; }
+input[type="date"]::placeholder { color: #b3b3b3; font-size: 20px; opacity: 1; }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: brightness(1) invert(0.4) sepia(1) hue-rotate(180deg) saturate(3);
+  opacity: 1;
+}
+
+input[type="date"]:focus::-webkit-calendar-picker-indicator {
+  filter: invert(34%) sepia(95%) saturate(1801%) hue-rotate(202deg) brightness(0.96) contrast(0.97);
+}
+
+input[type="date"]:disabled {
+  background-color: #f2f2f2;
+  color: #b3b3b3;
+  border-bottom: 2px solid #e5e7eb;
 }
 
 /* ========== Priority Buttons ========== */
@@ -243,7 +268,6 @@ input[type="date"]:focus {
   display: flex;
   gap: 16px;
 }
-
 
 .clear-btn {
   background: #fff;

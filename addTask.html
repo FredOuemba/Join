@@ -84,7 +84,7 @@
             <label for="desc">Description <span class="optional">(optional)</span></label>
             <textarea id="desc" placeholder="Enter a Description"></textarea>
             <label for="due-date" style="margin-top:20px;">Due date <span class="required-note"></span></label>
-            <input type="date" id="due-date"/>
+            <input type="date" id="due-date" placeholder="TT . MM . JJJJ"/>
           </div>
           <div class="line"></div>
           <div class="form-section">
@@ -137,11 +137,9 @@
               </div>
             </div>
             <label for="subtasks">Subtasks <span class="optional">(optional)</span></label>
-            <div class="subtask-input-container" id="subtask-input-container">
+            <div class="subtask-input-row">
               <input type="text" placeholder="Add new subtask" class="subtask-input"/>
-              <div class="subtask-buttons">
-                <button type="button" class="add-subtask-button">+</button>
-              </div>
+              <button type="button" class="add-subtask-button">+</button>
             </div>
             <div id="subtask-list-container" class="subtask-list-container">
               <div id="subtask-list" class="subtask-list"></div>
