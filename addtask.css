@@ -22,7 +22,6 @@ main {
   padding: 0 60px 0 60px;
   display: flex;
   flex-direction: column;
-  gap: 0;
   background: #fff;
   height: calc(100vh - 80px);
   overflow-y: auto;
@@ -221,11 +220,25 @@ input[type="date"]::placeholder { color: #b3b3b3; }
   transition: all 0.2s;
   outline: none;
 }
-.priority-btn img { height: 18px; }
+/* Priority-Button: Icon rechts NUR bei Medium */
+.priority-btn .priority-icon {
+  order: 0;
+  margin-right: 5px;
+}
+.priority-btn .priority-icon-right {
+  order: 1;
+  margin-left: 10px;
+  margin-right: 0;
+}
+.priority-btn.urgent .priority-icon,
+.priority-btn.low .priority-icon {
+  margin-right: 7px;
+}
 
-.priority-btn.urgent { }
-.priority-btn.medium { border-color: #ffa800; }
-.priority-btn.low { }
+.priority-btn.medium .priority-icon-right {
+  margin-left: 10px;
+  margin-right: 0;
+}
 
 .priority-btn.active-urgent {
   color: #fff;
@@ -270,6 +283,7 @@ input[type="date"]::placeholder { color: #b3b3b3; }
   margin-bottom: 8px;
   transition: border 0.18s;
   cursor: pointer;
+  position: relative;
 }
 
 .assigned-select.input-focus,
@@ -286,27 +300,27 @@ input[type="date"]::placeholder { color: #b3b3b3; }
   font-weight: 400;
 }
 
-.assigned-select,
-.category-select {
+/* Dropdown Arrow Custom Positionierung */
+.dropdown-arrow.custom-arrow {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+  opacity: 0.65;
+  transition: transform 0.2s;
 }
-
-.assigned-select .dropdown-arrow,
-.category-select .dropdown-arrow {
-  width: 24px;
-  height: 24px;
-  opacity: 0.7;
+.assigned-select input#assigned-search {
+  padding-right: 30px;
 }
-
-.assigned-search-input {
-  border: none;
-  background: none;
-  font-size: 18px;
-  width: 100%;
-  outline: none;
-  color: #2a3647;
-  font-family: inherit;
-  padding: 0;
-  margin: 0;
+.category-select .category-placeholder {
+  padding-right: 30px;
+}
+.assigned-select.open .dropdown-arrow,
+.category-select.open .dropdown-arrow {
+  transform: translateY(-50%) rotate(180deg);
 }
 
 #selected-avatars.selected-avatars {
@@ -539,4 +553,11 @@ label[for="category"] {
   font-size: 14px;
   font-weight: 400;
   margin-left: 3px;
+}
+
+/* Mobile Anpassung */
+@media (max-width: 600px) {
+  .dropdown-arrow.custom-arrow {
+    right: 10px;
+  }
 }
