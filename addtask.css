@@ -251,6 +251,77 @@ input[type="date"]:disabled {
   opacity: 1;
 }
 
+/* ========== Subtasks (Plus Button CIRCLE Hover) ========== */
+.subtask-input-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+
+.subtask-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #b3b3b3;
+  padding: 8px 0;
+  outline: none;
+}
+.subtask-input::placeholder {
+  color: #b3b3b3;
+  opacity: 1;
+  font-size: 16px;
+}
+
+.add-subtask-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  transition: background 0.12s;
+  cursor: pointer;
+}
+
+.add-subtask-button {
+  background: none;
+  border: none;
+  color: #4589ff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.16s;
+  cursor: pointer;
+}
+
+.add-subtask-button:focus {
+  outline: none;
+}
+
+/* CIRCLE Hover wie Arrow */
+.add-subtask-button-wrapper:hover,
+.add-subtask-button-wrapper:focus-within {
+  background: #dbeaff;
+}
+
+.add-subtask-button-wrapper:hover .add-subtask-button,
+.add-subtask-button-wrapper:focus-within .add-subtask-button {
+  color: #005DFF;
+}
+
+/* Subtasks-Container */
+.subtask-list-container {
+  margin-bottom: 16px;
+}
+
 /* ========== Bottom Buttons ========== */
 .bottom-buttons {
   position: fixed;
@@ -362,4 +433,9 @@ input[type="date"]:disabled {
     border-radius: 8px;
     font-size: 16px;
   }
+}
+
+/* ========== Utility ========== */
+.d-none {
+  display: none !important;
 }
