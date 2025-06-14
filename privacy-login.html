@@ -11,8 +11,41 @@
     <link rel="stylesheet" href="styles/help.css">
     <link rel="stylesheet" href="styles/standard.css">
     <style>
-      .logo-title{
+      .logo-title {
         padding-right: 50px;
+      }
+      /* Figma-Style: schmales, zentriertes Button im Footer */
+      .sidebar-footer a.nav-item-footer.active {
+        background: #4589FF;
+        color: #fff !important;
+        font-weight: 700;
+        border-radius: 8px;
+        padding: 8px 12px;
+        display: inline-block;
+        box-shadow: 0 2px 8px 0 rgba(69,137,255,0.13);
+        margin-bottom: 2px;
+        letter-spacing: 0.03em;
+        min-width: 0;
+        width: auto;
+        text-align: center;
+      }
+      .sidebar-footer a.nav-item-footer {
+        background: none;
+        color: #8a8a8a;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 0;
+        margin-bottom: 4px;
+        font-weight: 400;
+        transition: background 0.13s, color 0.13s;
+        min-width: 0;
+        width: auto;
+        display: inline-block;
+        text-align: center;
+      }
+      .sidebar-footer a.nav-item-footer:not(.active):hover {
+        color: #4589FF;
+        background: none;
       }
     </style>
 </head>
@@ -31,7 +64,7 @@
     </nav>
     <div class="sidebar-footer">
       <a href="privacy-login.html" class="nav-item-footer active">Privacy Policy</a>
-      <a href="Legal-login.html">Legal notice</a>
+      <a href="Legal-login.html" class="nav-item-footer">Legal notice</a>
     </div>
   </aside>
         
