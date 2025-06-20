@@ -73,7 +73,7 @@ label .required-note {
 }
 
 input[type="text"], textarea {
-  width: 100%;
+  width: 440px;
   padding: 18px 0 8px 0;
   font-size: 20px;
   border: none;
@@ -94,8 +94,8 @@ input[type="text"]:focus, textarea:focus {
 textarea {
   resize: vertical;
   overflow-y: auto;
-  min-height: 80px;
-  max-height: 120px;
+width: 440px;
+height: 154px;
   font-size: 20px;
   font-family: inherit;
   background: #fff;
@@ -117,7 +117,7 @@ textarea::placeholder {
 
 /* ==== Custom Underline for Due Date ==== */
 input[type="date"] {
-  width: 100%;
+width: 440px;
   padding: 18px 4px 8px 0;
   font-size: 20px;
   border: none;
@@ -125,7 +125,7 @@ input[type="date"] {
   border-radius: 0;
   background: #fff url('svg/calendar.svg') no-repeat right 12px center/22px 22px;
   box-sizing: border-box;
-  height: 50px;
+  height: 60px;
   margin-bottom: 18px;
   transition: border-color 0.2s;
   color: #2a3647;
@@ -178,7 +178,8 @@ input[type="date"]:disabled {
   cursor: pointer;
   font-weight: 600;
   transition: border-color 0.2s;
-  min-width: 110px;
+width: 136px;
+height: 51px;
   justify-content: center;
   position: relative;
   box-sizing: border-box;
