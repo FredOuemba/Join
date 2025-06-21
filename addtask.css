@@ -85,6 +85,7 @@ input[type="text"], textarea {
   color: #2a3647;
   font-family: inherit;
   transition: border-color 0.2s;
+  cursor: pointer;
 }
 input[type="text"]:focus, textarea:focus {
   border-bottom: 2px solid #4589FF;
