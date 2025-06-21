@@ -117,42 +117,60 @@ textarea::placeholder {
   opacity: 1;
 }
 
-/* ==== Custom Underline for Due Date ==== */
-input[type="date"] {
+/* ==== Custom Datepicker Style ==== */
+.custom-date-row {
+  display: flex;
+  align-items: center;
   width: 100%;
   max-width: 440px;
-  padding: 18px 4px 8px 0;
-  font-size: 20px;
-  border: none;
   border-bottom: 2px solid #e5e7eb;
-  border-radius: 0;
-  background: #fff url('assets/event.png') no-repeat right 12px center/22px 22px;
-  box-sizing: border-box;
-  height: 60px;
   margin-bottom: 18px;
+  padding-right: 6px;
   transition: border-color 0.2s;
-  color: #2a3647;
-  appearance: none;
+  min-height: 60px;
+  background: #fff;
+  box-sizing: border-box;
 }
-input[type="date"]:focus {
+.custom-date-row:focus-within {
   border-bottom: 2px solid #4589FF;
+}
+.custom-date-input {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  color: #2a3647;
+  flex: 1;
+  padding: 18px 0 8px 0;
   outline: none;
+  font-family: inherit;
+  width: 100%;
+  max-width: 440px;
+  cursor: pointer;
 }
-input[type="date"]::placeholder { color: #b3b3b3; font-size: 20px; opacity: 1; }
-input[type="date"]::-webkit-input-placeholder { color: #b3b3b3; font-size: 20px; opacity: 1; }
-input[type="date"]::-moz-placeholder { color: #b3b3b3; font-size: 20px; opacity: 1; }
-input[type="date"]:-ms-input-placeholder { color: #b3b3b3; font-size: 20px; opacity: 1; }
-input[type="date"]:disabled {
-  background-color: #f2f2f2;
+.custom-date-input::placeholder {
   color: #b3b3b3;
-  border-bottom: 2px solid #e5e7eb;
-}
-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: brightness(1) invert(0.4) sepia(1) hue-rotate(180deg) saturate(3);
+  font-size: 20px;
   opacity: 1;
+  user-select: none;
 }
-input[type="date"]:focus::-webkit-calendar-picker-indicator {
-  filter: invert(34%) sepia(95%) saturate(1801%) hue-rotate(202deg) brightness(0.96) contrast(0.97);
+.calendar-btn {
+  background: none;
+  border: none;
+  padding: 0 10px 0 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 38px;
+  margin-left: 4px;
+}
+.calendar-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+/* Hide native date input */
+input[type="date"]#hiddenDateInput {
+  display: none;
 }
 
 /* ========== Priority Buttons ========== */
@@ -180,7 +198,7 @@ input[type="date"]:focus::-webkit-calendar-picker-indicator {
   height: 51px;
   justify-content: center;
   position: relative;
-  box-sizing: border-box;tas
+  box-sizing: border-box;
 }
 
 /* Urgent & Low: Hover-Effekt NUR untere Border färben, Inhalt bleibt */
@@ -561,10 +579,12 @@ input[type="date"]:focus::-webkit-calendar-picker-indicator {
   .category-dropdown,
   .subtask-input-row,
   #subtask-list-container,
-  #subtask-list {
+  #subtask-list,
+  .custom-date-row {
     width: 100%;
     min-width: 0;
     max-width: 100%;
+    border: none;
   }
 }
 
