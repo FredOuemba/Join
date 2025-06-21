@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join - Add Task</title>
-    <!-- CSS Links wie im Original -->
     <link rel="stylesheet" href="styles/sidebar.css">
     <link rel="stylesheet" href="styles/addtask.css">
     <link rel="stylesheet" href="styles/addTaskSelfmadeDoms.css">
@@ -76,15 +75,28 @@
     <!-- Main Content -->
     <main>
       <div class="maincontent">
-        <div class="h1div"><h1>Add Task</h1></div>
+    
         <form>
           <div class="form-section">
             <label for="title"><span class="required-note"></span></label>
             <input type="text" id="title" placeholder="Enter a title"/>
             <label for="desc">Description <span class="optional">(optional)</span></label>
             <textarea id="desc" placeholder="Enter a Description"></textarea>
-            <label for="due-date" style="margin-top:20px;">Due date <span class="required-note"></span></label>
-            <input type="date" id="due-date" placeholder="dd . mm . yyyy"/>
+            <label for="due-date-custom" style="margin-top:20px;">Due date <span class="required-note"></span></label>
+            <div class="custom-date-row">
+              <input 
+                type="text" 
+                id="due-date-custom" 
+                class="custom-date-input" 
+                placeholder="dd/mm/yyyy" 
+                readonly 
+                autocomplete="off"
+              />
+              <button type="button" class="calendar-btn" id="calendarBtn" tabindex="-1">
+                <img src="assets/event.png" alt="Kalender" class="calendar-icon"/>
+              </button>
+              <input type="date" id="hiddenDateInput" style="display:none;">
+            </div>
           </div>
           <div class="line"></div>
           <div class="form-section">
@@ -138,11 +150,11 @@
             </div>
             <label for="subtasks">Subtasks <span class="optional">(optional)</span></label>
             <div class="subtask-input-row">
-  <input type="text" placeholder="Add new subtask" class="subtask-input"/>
-  <span class="add-subtask-button-wrapper">
-    <button type="button" class="add-subtask-button">+</button>
-  </span>
-</div>
+              <input type="text" placeholder="Add new subtask" class="subtask-input"/>
+              <span class="add-subtask-button-wrapper">
+                <button type="button" class="add-subtask-button">+</button>
+              </span>
+            </div>
             <div id="subtask-list-container" class="subtask-list-container">
               <div id="subtask-list" class="subtask-list"></div>
             </div>
@@ -159,5 +171,6 @@
 
     <script src="Scripts/addSubtaks.js"></script>
     <script src="Scripts/dropdown-menu.js"></script>
+    <script src="Scripts/addtask-custom-datepicker.js"></script>
   </body>
 </html>

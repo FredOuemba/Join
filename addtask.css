@@ -83,7 +83,6 @@ input[type="text"], textarea {
   box-sizing: border-box;
   background: #fff;
   color: #2a3647;
-  margin-bottom: 18px;
   font-family: inherit;
   transition: border-color 0.2s;
 }
@@ -135,7 +134,11 @@ textarea::placeholder {
   border-bottom: 2px solid #4589FF;
 }
 .custom-date-input {
-  border: none;
+ border: none !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+  outline: none !important;
   background: transparent;
   font-size: 20px;
   color: #2a3647;
@@ -186,13 +189,13 @@ input[type="date"]#hiddenDateInput {
   align-items: center;
   gap: 10px;
   padding: 10px 22px;
-  font-size: 16px;
+  font-size: 19px;
   border: 2px solid #e5e7eb;
   border-radius: 8px;
   background: #fff;
   color: #2a3647;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 400;
   transition: border-color 0.2s;
   width: 136px;
   height: 51px;
