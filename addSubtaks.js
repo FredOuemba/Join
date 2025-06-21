@@ -70,42 +70,46 @@ function deleteSubtask(subtaskId) {
   renderSubtaskList();
 }
 
-// Start editing a subtask
+// Start editing a subtask (with Check+Delete, Divider, blue underline)
 function startEditSubtask(subtaskId) {
   const subtask = subtasks.find(s => s.id === subtaskId);
   const row = document.getElementById(`subtask-${subtaskId}`);
   if (!row) return;
   row.innerHTML = '';
+  row.className = 'edit-subtask-row';
 
   const input = document.createElement('input');
   input.type = 'text';
   input.value = subtask.title;
   input.className = 'edit-subtask-input';
 
-  // Icons for confirm/cancel
+  // Icons & Divider
   const icons = document.createElement('span');
   icons.className = 'edit-subtask-icons';
 
-  const confirmBtn = document.createElement('img');
-  confirmBtn.src = 'assets/Property 1=edit.png';
-  confirmBtn.className = 'subtask-icon edit-icon';
-  confirmBtn.title = 'Save';
-  confirmBtn.alt = 'Save';
-  confirmBtn.onclick = function() {
-    confirmEditSubtask(subtaskId, input.value);
-  };
+  // Delete (cancel) button
+  const deleteBtn = document.createElement('img');
+  deleteBtn.src = 'assets/Property 1=delete.png';
+  deleteBtn.className = 'subtask-icon delete-icon';
+  deleteBtn.title = 'Cancel';
+  deleteBtn.alt = 'Cancel';
+  deleteBtn.onclick = function() { renderSubtaskList(); };
 
-  const cancelBtn = document.createElement('img');
-  cancelBtn.src = 'assets/Property 1=delete.png';
-  cancelBtn.className = 'subtask-icon delete-icon';
-  cancelBtn.title = 'Cancel';
-  cancelBtn.alt = 'Cancel';
-  cancelBtn.onclick = function() {
-    renderSubtaskList();
-  };
+  // Divider
+  const divider = document.createElement('div');
+  divider.className = 'edit-subtask-divider';
 
-  icons.appendChild(confirmBtn);
-  icons.appendChild(cancelBtn);
+  // Check (save) button
+  const checkBtn = document.createElement('img');
+  checkBtn.src = 'assets/Property 1=check.png';
+  checkBtn.className = 'subtask-icon check-icon';
+  checkBtn.title = 'Save';
+  checkBtn.alt = 'Save';
+  checkBtn.onclick = function() { confirmEditSubtask(subtaskId, input.value); };
+
+  icons.appendChild(deleteBtn);
+  icons.appendChild(divider);
+  icons.appendChild(checkBtn);
 
   row.appendChild(input);
   row.appendChild(icons);
