@@ -184,6 +184,23 @@ input[type="date"]#hiddenDateInput {
   margin-top: 6px;
 }
 
+/* Pflichtfeld rot markieren */
+.input-error,
+.input-error:focus {
+  border-bottom: 2px solid #ff5d5d !important;
+  outline: none;
+}
+
+.input-error-message {
+  color: #ff5d5d;
+  font-size: 14px;
+  margin-top: 2px;
+  margin-bottom: 12px;
+  font-family: inherit;
+  padding-left: 2px;
+  min-height: 18px;
+}
+
 .priority-btn {
   display: flex;
   align-items: center;
@@ -594,4 +611,14 @@ input[type="date"]#hiddenDateInput {
 /* ========== Utility ========== */
 .d-none {
   display: none !important;
+}
+.input-error,
+.input-error:focus {
+  border-bottom: 2px solid #ff5d5d !important;
+  outline: none;
+}
+
+/* Für Container wie .custom-date-row */
+.custom-date-row.input-error {
+  border-bottom: 2px solid #ff5d5d !important;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -75,28 +75,29 @@
     <!-- Main Content -->
     <main>
       <div class="maincontent">
-    
-        <form>
+        <form id="addtask-form" novalidate>
           <div class="form-section">
-            <label for="title"><span class="required-note"></span></label>
-            <input type="text" id="title" placeholder="Enter a title"/>
+            <label for="title"> <span class="required-note">*</span></label>
+            <input type="text" id="title" placeholder="Enter a title" autocomplete="off" />
+            <div id="title-error" class="input-error-message"></div>
+
             <label for="desc">Description <span class="optional">(optional)</span></label>
             <textarea id="desc" placeholder="Enter a Description"></textarea>
-            <label for="due-date-custom" style="margin-top:20px;">Due date <span class="required-note"></span></label>
+
+            <label for="due-date-custom" style="margin-top:20px;">Due date <span class="required-note">*</span></label>
             <div class="custom-date-row">
               <input 
                 type="text" 
                 id="due-date-custom" 
-                class="custom-date-input" 
-                placeholder="dd/mm/yyyy" 
-                readonly 
+                class="custom-date-input"
+                placeholder="dd/mm/yyyy"
                 autocomplete="off"
               />
               <button type="button" class="calendar-btn" id="calendarBtn" tabindex="-1">
-                <img src="assets/event.png" alt="Kalender" class="calendar-icon"/>
+                <img src="assets/event.png" alt="Calendar" class="calendar-icon"/>
               </button>
-              <input type="date" id="hiddenDateInput" style="display:none;">
             </div>
+            <div id="due-date-error" class="input-error-message"></div>
           </div>
           <div class="line"></div>
           <div class="form-section">
@@ -171,6 +172,6 @@
 
     <script src="Scripts/addSubtaks.js"></script>
     <script src="Scripts/dropdown-menu.js"></script>
-    <script src="Scripts/addtask-custom-datepicker.js"></script>
+    <script src="Scripts/addtask-validation.js"></script>
   </body>
 </html>
