@@ -56,8 +56,8 @@ form {
 }
 
 label {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 700;
   color: #2a3647;
   margin-bottom: 5px;
   margin-top: 22px;
@@ -365,21 +365,30 @@ input[type="date"]#hiddenDateInput {
   opacity: 1;
 }
 
-/* Category bottom border und saubere vertikale Ausrichtung */
+/* Category Dropdown Anpassung */
+.category-dropdown {
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  margin-bottom: 20px;
+}
 .category-select {
   width: 100%;
-  border-bottom: 2px solid #e5e7eb;
-  border-radius: 0;
   background: #fff;
   box-sizing: border-box;
-  margin-bottom: 18px;
-  padding-right: 6px;
-  transition: border-color 0.2s;
   display: flex;
   align-items: center;
   min-height: 44px;
+  padding-right: 6px;
+  border-bottom: 2px solid #e5e7eb;
+  cursor: pointer;
+  position: relative;
+  border-radius: 0;
+  transition: border-bottom-color 0.2s;
+  user-select: none;
 }
-.category-select:focus-within {
+.category-select.active,
+.category-select.has-value {
   border-bottom: 2px solid #4589FF;
 }
 .category-placeholder {
@@ -390,11 +399,75 @@ input[type="date"]#hiddenDateInput {
   display: flex;
   align-items: center;
   height: 36px;
+  opacity: 0.6;
 }
-/* Align dropdown arrow with text for category */
-.category-select .dropdown-arrow-hover-area {
+.category-select.has-value .category-placeholder {
+  color: #2a3647;
+  opacity: 1;
+  font-weight: 500;
+}
+.category-dropdown .dropdown-arrow-hover-area {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  width: 32px;
   height: 36px;
+  position: relative;
+}
+.category-dropdown .dropdown-arrow-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  transition: background 0.12s;
+  cursor: pointer;
+  margin: 0 auto;
+}
+.category-dropdown .dropdown-arrow-wrapper.arrow-hover {
+  background: #dbeaff;
+}
+.category-arrow {
+  pointer-events: none;
+  width: 18px;
+  height: 18px;
+  opacity: 1;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.2s;
+}
+.category-arrow polyline {
+  stroke: #4589FF;
+  transition: stroke 0.14s;
+}
+.category-options {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px 0 rgba(69,137,255,0.07);
+  margin-top: 4px;
+  padding: 6px 0;
+  width: 100%;
+  max-width: 440px;
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  font-size: 18px;
+  color: #2a3647;
+  border: 1.5px solid #e5e7eb;
+}
+.category-option {
+  padding: 12px 18px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.12s;
+  outline: none;
+  font-size: 18px;
+}
+.category-option.selected,
+.category-option:hover,
+.category-option:focus {
+  background: #D2E3FF !important;
 }
 
 /* Subtask input bottom border: nur EINE Linie! */
@@ -427,18 +500,10 @@ input[type="date"]#hiddenDateInput {
   box-shadow: none;
 }
 
-/* Remove border from subtask-list-container if present */
 #subtask-list-container,
 #subtask-list {
   border: none !important;
   background: none;
-}
-
-/* ========== Subtasks (Plus Button CIRCLE Hover) ========== */
-.subtask-input-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5em;
 }
 
 .add-subtask-button-wrapper {
@@ -482,7 +547,6 @@ input[type="date"]#hiddenDateInput {
   color: #005DFF;
 }
 
-/* Subtasks-Container */
 .subtask-list-container {
   margin-bottom: 16px;
   background: none;

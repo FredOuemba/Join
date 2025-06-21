@@ -23,3 +23,4 @@ function renderSubtaskList(id, title) {
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.add-subtask-button').addEventListener('click', addSubtask);
 });
+
