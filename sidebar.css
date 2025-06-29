@@ -39,21 +39,42 @@
   transition: background .14s;
 }
 
-.nav-item.active,
-.nav-item:hover {
+.nav-item.active {
   background: #e7f0fd;
-  color: #4589FF;
+  color: #42526E;
 }
+
+.nav-item:hover {
+  background: #D2E3FF;
+  color: #42526E;
+}
+
 .nav-item-content {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .nav-item-content span {
   font-size: 15px;
   color: inherit;
 }
 
+/* Sidebar Icon Farbe: #42526E immer! */
+.nav-item-content img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) saturate(100%) invert(35%) sepia(9%) saturate(1193%) hue-rotate(183deg) brightness(92%) contrast(90%);
+  transition: filter 0.15s;
+}
+
+
+.nav-item.active .nav-item-content img,
+.nav-item:hover .nav-item-content img {
+  filter: brightness(0) saturate(100%) invert(35%) sepia(9%) saturate(1193%) hue-rotate(183deg) brightness(92%) contrast(90%);
+}
+
+/* Footer */
 .sidebar-footer {
   display: flex;
   flex-direction: column;
@@ -72,20 +93,3 @@
   color: #4589FF;
 }
 
-@media (max-width: 768px) {
-  .sidebar {
-    width: 70px;
-    min-width: 70px;
-  }
-  .sidebar-logo-header, .sidebar-footer {
-    padding-left: 7px;
-  }
-  .sidebar-join-logo {
-    width: 32px;
-    height: 32px;
-  }
-  .nav-item-content span {
-    display: none;
-  }
-  .sidebar-footer { font-size: 11px; }
-}
