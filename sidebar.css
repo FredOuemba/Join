@@ -25,9 +25,7 @@
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: 16px;          
-  margin-top: 24px;   
-  margin-bottom: 0;
+  gap: 2px;
 }
 
 .nav-item {
@@ -35,50 +33,27 @@
   color: #42526E;
   display: flex;
   align-items: center;
-  padding: 10px 0 10px 0;  
+  padding: 10px 0 10px 22px;
   border-radius: 8px;
-  margin: 0;
-  transition: background .14s, color .14s;
-  width: 100%;
-  box-sizing: border-box;
-  cursor: pointer;
+  margin: 0 12px 0 0;
+  transition: background .14s;
 }
 
+.nav-item.active,
+.nav-item:hover {
+  background: #e7f0fd;
+  color: #4589FF;
+}
 .nav-item-content {
   display: flex;
   align-items: center;
-  gap: 16px;         
-  padding-left: 24px; 
+  gap: 12px;
 }
-
 .nav-item-content span {
   font-size: 15px;
   color: inherit;
 }
 
-.nav-item-content img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(0) saturate(100%) invert(35%) sepia(9%) saturate(1193%) hue-rotate(183deg) brightness(92%) contrast(90%);
-  transition: filter 0.15s;
-}
-
-.nav-item.active {
-  background: #e7f0fd;
-  color: #42526E;
-}
-
-.nav-item:hover {
-  background: #D2E3FF;
-  color: #42526E;
-}
-
-.nav-item.active .nav-item-content img,
-.nav-item:hover .nav-item-content img {
-  filter: brightness(0) saturate(100%) invert(35%) sepia(9%) saturate(1193%) hue-rotate(183deg) brightness(92%) contrast(90%);
-}
-
-/* Footer */
 .sidebar-footer {
   display: flex;
   flex-direction: column;
@@ -97,32 +72,20 @@
   color: #4589FF;
 }
 
-
-@media (max-width: 850px) {
+@media (max-width: 768px) {
   .sidebar {
     width: 70px;
+    min-width: 70px;
   }
-  .sidebar-nav {
-    gap: 12px;
+  .sidebar-logo-header, .sidebar-footer {
+    padding-left: 7px;
   }
-  .sidebar-logo-header {
-    padding: 18px 0 6px 8px;
+  .sidebar-join-logo {
+    width: 32px;
+    height: 32px;
   }
   .nav-item-content span {
-    display: none; 
-  }
-  .nav-item-content {
-    padding-left: 13px;
-    gap: 0;
-  }
-  .sidebar-footer {
-    padding: 0 0 16px 8px;
-  }
-}
-
-
-@media (max-width: 500px) {
-  .sidebar {
     display: none;
   }
+  .sidebar-footer { font-size: 11px; }
 }
