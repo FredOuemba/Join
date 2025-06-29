@@ -55,11 +55,11 @@ profile-wrapper {
 }
 
 .dropdown-menu-small li:hover {
-    background-color: #2a3e59;
+    background-color: #E3EEFF;
 }
 
 .dropdown-menu-small li a {
-    color: #CDCDCD;
+    color: #42526E;
     text-decoration: none;
     display: block;
 }
@@ -72,37 +72,3 @@ profile-wrapper {
     display: none;
 }
 
-@media (max-width: 768px) {
-    .mobile-only {
-        display: block;
-    }
-    
-    .help-icon {
-        display: none;
-    }
-
-    .dropdown-menu-small {
-        max-width: 150px;
-        margin-top: 0;
-        animation: slideIn 0.3s ease-in-out;
-        border-radius: 20px 0px 20px 20px;
-    }
-
-    .dropdown-menu-small li:hover {
-        background-color: inherit;
-    }
-    .dropdown-menu-small .menu-help:hover {
-        background-color: #2a3e59;
-    }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
